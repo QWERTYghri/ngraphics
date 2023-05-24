@@ -5,9 +5,12 @@
 
 include conf.mk
 
-OBJSET	:= ./src/public/*.h ./src/private/*.c
+OBJSET		:= ./src/private/*.c
+SHARED_OBJ	:= /usr/lib
+SHARED_HEADER	:= /usr/include
 
-.PHONY: all clean
+
+.PHONY: all clean install
 all: libngraphics.so libngraphics.a
 
 libngraphics.so: $(OBJSET)
@@ -16,6 +19,16 @@ libngraphics.so: $(OBJSET)
 libngraphics.a: $(OBJSET)
 	$(CC) $(CFLAGS) $(CPPFLAGS) $(LIB) -c $^
 	ar -rcs $@ *.o
+
+install:
+	mkdir -p $(SHARED_OBJ)
+	mkdir -p $(SHARED_HEADER)
 	
+	install *.so $(SHARED_OBJ)
+	install ./src/public/ngraphics.h $(SHARED_HEADER)
+uninstall:
+	-rm -rf $(SHARED_OBJ)/libngraphics.so
+	-rm -rf $(SHARED_HEADER)/ngraphics.h
+
 clean:
 	-rm -rf *.o *.so *.a

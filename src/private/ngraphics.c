@@ -5,8 +5,5 @@
  
 #include <stdio.h>
 #include "../public/ngraphics.h"
- 
-void test ()
-{
-	printf ("test" );
-}
+
+
