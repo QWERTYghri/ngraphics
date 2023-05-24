@@ -5,15 +5,17 @@
 
 include conf.mk
 
-.PHONY: obj all clean
+OBJSET	:= ./src/public/*.h ./src/private/*.c
 
-all: obj libngraphics.so
+.PHONY: all clean
+all: libngraphics.so libngraphics.a
 
-obj: ./src/public ./src/private
-	$(CC) $(CFLAGS) $(CPPFLAGS) $(LIB) -c $^
-
-libngraphics.so: ./*.o
+libngraphics.so: $(OBJSET)
 	$(CC) $(CFLAGS) $(CPPFLAGS) $(LIB) -fPIC -shared -o $@ $^
 	
+libngraphics.a: $(OBJSET)
+	$(CC) $(CFLAGS) $(CPPFLAGS) $(LIB) -c $^
+	ar -rcs $@ *.o
+	
 clean:
-	-rm -rf *.o *.so
+	-rm -rf *.o *.so *.a
