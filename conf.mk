@@ -6,7 +6,7 @@ SHARED_HEADER	:= /usr/include
 CC	 ?= gcc
 CFLAGS	 := -std=c99 -Wpedantic -Wall -Wextra 
 CPPFLAGS := -D_POSIX_C_SOURCE=200809L
-LIB	 := -lncurses
+LIB	 := -lncurses -lm
 
 #Optimization
 OFLAG	 := -g -O0

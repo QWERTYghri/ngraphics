@@ -8,7 +8,7 @@ include conf.mk
 OBJSET		:= ./src/private/*.c
 
 .PHONY: all clean install
-all: libngraphics.so
+all: libngraphics.so install example.out
 
 libngraphics.so: $(OBJSET)
 	$(CC) $(CFLAGS) $(CPPFLAGS) $(LIB) -fPIC -shared -o $@ $^
@@ -16,6 +16,9 @@ libngraphics.so: $(OBJSET)
 libngraphics.a: $(OBJSET)
 	$(CC) $(CFLAGS) $(CPPFLAGS) $(LIB) -c $^
 	ar -rcs $@ *.o
+
+example.out: ./src/uTest/example.c
+	$(CC) $(CFLAGS) $(CPPFLAGS) $(LIB) -lngraphics -o $@ $^
 
 install:
 	mkdir -p $(SHARED_OBJ)
@@ -28,4 +31,4 @@ uninstall:
 	-rm -rf $(SHARED_HEADER)/ngraphics.h
 
 clean:
-	-rm -rf *.o *.so *.a
+	-rm -rf *.o *.so *.a *.out

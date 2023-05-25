@@ -13,7 +13,7 @@ No initialization is needed because, well you have to do it yourself through ncu
 This just covers printing out those graphics along with coloring.
 
 No fancy stuff like using different characters for steepness in lines is used. Why? Because
-I'm lazy.
+I'm lazy. Also, as a plus for this project, lower your terminal font setting to 1 to get a full graphics library. 
 
 The library includes mostly all the BGI graphics functions, the BGI functions are listed [here](https://www.programmingsimplified.com/c/graphics.h)
 
