@@ -6,9 +6,6 @@
 include conf.mk
 
 OBJSET		:= ./src/private/*.c
-SHARED_OBJ	:= /usr/lib
-SHARED_HEADER	:= /usr/include
-
 
 .PHONY: all clean install
 all: libngraphics.so libngraphics.a

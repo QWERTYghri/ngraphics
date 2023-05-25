@@ -1,3 +1,7 @@
+#Installation
+SHARED_OBJ	:= /usr/lib
+SHARED_HEADER	:= /usr/include
+
 #General Flags
 CC	 ?= gcc
 CFLAGS	 := -std=c99 -Wpedantic -Wall -Wextra 
