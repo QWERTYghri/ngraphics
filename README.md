@@ -25,7 +25,7 @@ An example program showing what the library can do is located in uTest.
 
 Installation
 ------------
-Use the make program to compile the program into a library. It outputs both a shared library and a static library.
+Use the make program to compile the program into a library. It outputs both a shared library and optionally a static library
 
 To install the shared library, run the following:
 
@@ -35,3 +35,7 @@ To install the shared library, run the following:
 To uninstall the shared library, run the following:
 
 	sudo make uninstall
+	
+To create a static library, run the following:
+
+	make libngraphics.a
