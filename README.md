@@ -23,6 +23,13 @@ An example program showing what the library can do is located in uTest.
 
 Installation
 ------------
-You can create the shared library by running `make`. But to install it you must do `make install` where it will install
-to a directory specified in `conf.mk`. The installation defaults to `/usr/lib` and `/usr/include`. It doesn't check
-where the `PATH` variable leads to
+Use the make program to compile the program into a library. It outputs both a shared library and a static library.
+
+To install the shared library, run the following:
+
+	make
+	sudo make install
+
+To uninstall the shared library, run the following:
+
+	sudo make uninstall

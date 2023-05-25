@@ -8,7 +8,7 @@ include conf.mk
 OBJSET		:= ./src/private/*.c
 
 .PHONY: all clean install
-all: libngraphics.so libngraphics.a
+all: libngraphics.so
 
 libngraphics.so: $(OBJSET)
 	$(CC) $(CFLAGS) $(CPPFLAGS) $(LIB) -fPIC -shared -o $@ $^
